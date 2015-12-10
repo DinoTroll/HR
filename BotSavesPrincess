@@ -1,0 +1,71 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+using namespace std;
+void displayPathtoPrincess(int n, vector <string> grid)
+{
+    int bx, by, px, py;
+    string r;
+    
+    for (int i = 0; i < n; i++)
+    {
+        r = grid[i];
+        for (int j = 0; j < n; j++)
+        {
+            if (r[j] == 'p')
+            {
+                px = i;
+                py = j;
+                
+            }
+            
+            if (r[j] == 'm')
+            {
+                bx = i;
+                by = j;
+            }
+        }
+    }
+   
+   while(bx < px)
+   {
+        cout << "DOWN\n";
+        bx++;
+   }
+    
+   while(by < py)
+   {
+      cout << "RIGHT\n"; 
+      by++;
+   }
+    
+   while(px < bx)
+   {
+        cout << "UP\n";
+        px++;
+   }
+    
+   while(py < by)
+   {
+       cout << "LEFT\n";
+       py++;
+   }
+   
+
+}
+int main(void) {
+
+    int m;
+    vector <string> grid;
+
+    cin >> m;
+
+    for(int i=0; i<m; i++) {
+        string s; cin >> s;
+        grid.push_back(s);
+    }
+
+    displayPathtoPrincess(m,grid);
+
+    return 0;
+}
