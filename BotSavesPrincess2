@@ -1,0 +1,69 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+void nextMove(int n, int r, int c, vector <string> grid){
+    //your logic here
+    
+    int bx, by, px, py;
+    string row;
+    
+    for (int i = 0; i < n; i++)
+    {
+        row = grid[i];
+        for (int j = 0; j < n; j++)
+        {
+            if (row[j] == 'p')
+            {
+                px = i;
+                py = j;
+                
+            }
+            
+            if (row[j] == 'm')
+            {
+                bx = i;
+                by = j;
+            }
+        }
+    }
+   
+   if(bx < px)
+   {
+        cout << "DOWN\n";
+        bx++;
+   }
+   else if(by < py)
+   {
+      cout << "RIGHT\n"; 
+      by++;
+   }
+    
+   else if(px < bx)
+   {
+        cout << "UP\n";
+        px++;
+   }
+    
+   else
+   {
+       cout << "LEFT\n";
+       py++;
+   }
+}
+int main(void) {
+
+    int n, r, c;
+    vector <string> grid;
+
+    cin >> n;
+    cin >> r;
+    cin >> c;
+
+    for(int i=0; i<n; i++) {
+        string s; cin >> s;
+        grid.push_back(s);
+    }
+
+    nextMove(n, r, c, grid);
+    return 0;
+}
