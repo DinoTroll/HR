@@ -1,0 +1,53 @@
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+
+
+int main(){
+    int n;
+    int aa = 0;
+    int b = 0;
+    cin >> n;
+    vector< vector<int> > a(n,vector<int>(n));
+    for(int a_i = 0;a_i < n;a_i++){
+       for(int a_j = 0;a_j < n;a_j++){
+          cin >> a[a_i][a_j];
+           
+           if(a_i == a_j)
+           {
+               aa += a[a_i][a_j];
+           }
+           
+           if (a_j == n - a_i - 1)
+           {
+                b += a[a_i][a_j];
+           }
+          }
+         }
+   
+    aa = abs(aa - b);
+    cout << aa << "\n";
+    
+    return 0;
+}
